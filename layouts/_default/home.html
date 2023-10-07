@@ -1,0 +1,343 @@
+{{define "main"}}
+<!-- ======= Hero Section ======= -->
+{{with .Params.hero_section}}
+<section id="hero">
+  <div
+    id="heroCarousel"
+    data-bs-interval="5000"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide 1 -->
+      {{range .slides}}
+      <div
+        class="carousel-item active"
+        style="background-image: url({{.image}})"
+      >
+        <div class="carousel-container">
+          <div class="carousel-content animate__animated animate__fadeInUp">
+            <h2>{{.title}}</h2>
+            <p>{{.content}}</p>
+            <div class="text-center">
+              {{with .button}}
+              <a href="{{.link}}" class="btn-get-started">{{.label}}</a>
+              {{end}}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+
+    <a
+      class="carousel-control-prev"
+      href="#heroCarousel"
+      role="button"
+      data-bs-slide="prev"
+    >
+      <span
+        class="carousel-control-prev-icon bx bx-left-arrow"
+        aria-hidden="true"
+      ></span>
+    </a>
+
+    <a
+      class="carousel-control-next"
+      href="#heroCarousel"
+      role="button"
+      data-bs-slide="next"
+    >
+      <span
+        class="carousel-control-next-icon bx bx-right-arrow"
+        aria-hidden="true"
+      ></span>
+    </a>
+
+    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+  </div>
+</section>
+{{end}}
+<!-- End Hero -->
+
+<!-- ======= Cta Section ======= -->
+{{with .Params.call_to_action}}
+<section id="cta" class="cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 text-center text-lg-left">
+        <h3>{{.title | markdownify }}</h3>
+        <p>{{.content}}</p>
+      </div>
+      <div class="col-lg-3 cta-btn-container text-center">
+        {{with .button}}
+        <a class="cta-btn align-middle" href="{{.link}}">{{.label}}</a>
+        {{end}}
+      </div>
+    </div>
+  </div>
+</section>
+{{end}}
+<!-- End Cta Section -->
+
+<!-- ======= Services Section ======= -->
+{{with .Params.services_section}}
+<section id="services" class="services">
+  <div class="container">
+    <div class="row">
+      {{range .items}}
+      <div class="col-lg-4 col-md-6">
+        <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon"><i class="{{.icon}}"></i></div>
+          <h4 class="title"><a href="{{.link}}">{{.title}}</a></h4>
+          <p class="description">{{.content}}</p>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}
+<!-- End Services Section -->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+  <div class="container">
+    <div class="row" data-aos="fade-up">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row portfolio-container" data-aos="fade-up">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img
+          src="assets/img/portfolio/portfolio-1.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>App 1</h4>
+          <p>App</p>
+          <a
+            href="assets/img/portfolio/portfolio-1.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="App 1"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <img
+          src="assets/img/portfolio/portfolio-2.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Web 3</h4>
+          <p>Web</p>
+          <a
+            href="assets/img/portfolio/portfolio-2.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Web 3"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img
+          src="assets/img/portfolio/portfolio-3.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>App 2</h4>
+          <p>App</p>
+          <a
+            href="assets/img/portfolio/portfolio-3.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="App 2"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <img
+          src="assets/img/portfolio/portfolio-4.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Card 2</h4>
+          <p>Card</p>
+          <a
+            href="assets/img/portfolio/portfolio-4.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Card 2"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <img
+          src="assets/img/portfolio/portfolio-5.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Web 2</h4>
+          <p>Web</p>
+          <a
+            href="assets/img/portfolio/portfolio-5.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Web 2"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <img
+          src="assets/img/portfolio/portfolio-6.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>App 3</h4>
+          <p>App</p>
+          <a
+            href="assets/img/portfolio/portfolio-6.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="App 3"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <img
+          src="assets/img/portfolio/portfolio-7.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Card 1</h4>
+          <p>Card</p>
+          <a
+            href="assets/img/portfolio/portfolio-7.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Card 1"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+        <img
+          src="assets/img/portfolio/portfolio-8.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Card 3</h4>
+          <p>Card</p>
+          <a
+            href="assets/img/portfolio/portfolio-8.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Card 3"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <img
+          src="assets/img/portfolio/portfolio-9.jpg"
+          class="img-fluid"
+          alt=""
+        />
+        <div class="portfolio-info">
+          <h4>Web 3</h4>
+          <p>Web</p>
+          <a
+            href="assets/img/portfolio/portfolio-9.jpg"
+            data-gallery="portfolioGallery"
+            class="portfolio-lightbox preview-link"
+            title="Web 3"
+            ><i class="bx bx-plus"></i
+          ></a>
+          <a href="/portfolio-details" class="details-link" title="More Details"
+            ><i class="bx bx-link"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Portfolio Section -->
+
+<!-- ======= Our Clients Section ======= -->
+{{with .Params.client_section}}
+<section id="clients" class="clients">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>{{.title | markdownify}}</h2>
+      <p>{{.content}}</p>
+    </div>
+
+    <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+      {{range.logo}}
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="{{.}}" class="img-fluid" alt="" />
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}
+<!-- End Our Clients Section -->
+
+{{end}}

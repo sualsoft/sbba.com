@@ -1,0 +1,64 @@
+{{define "main"}}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Pricing</h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li>Pricing</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<!-- ======= Pricing Section ======= -->
+<section id="pricing" class="pricing">
+  <div class="container">
+    <div class="row">
+      {{range .Params.price_box}}
+      <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+        <div class="box {{ if .featured}} featured {{end}}" data-aos="fade-up">
+          <h3>{{.title}}</h3>
+          <h4><sup>{{.currency}}</sup>{{.price}}<span> / {{.period}}</span></h4>
+          <ul>
+            {{range.includes}}
+            <li>{{.}}</li>
+            {{end}}
+            <!---->
+            {{range.excludes}}
+            <li class="na">{{.}}</li>
+            {{end}}
+          </ul>
+          <div class="btn-wrap">
+            {{with.button}}
+            <a href="{{.link}}" class="btn-buy">{{.label}}</a>
+            {{end}}
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</section>
+<!-- End Pricing Section -->
+
+<!-- ======= Cta Pricing Section ======= -->
+{{with .Params.cta_pricing}}
+<section id="cta-pricing" class="cta-pricing">
+  <div class="container">
+    <div class="text-center">
+      <h3>{{.title}}</h3>
+      <p>{{.content}}</p>
+      {{with .button}}
+      <a class="cta-btn" href="{{.link}}">{{.label}}</a>
+      {{end}}
+    </div>
+  </div>
+</section>
+{{end}}
+<!-- End Cta Pricing Section -->
+
+{{end}}

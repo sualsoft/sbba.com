@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{partial "head.html" .}}
+
+  <body>
+    <!-- ======= Top Bar ======= -->
+    {{ partial "topbar.html"}}
+
+    <!-- ======= Header ======= -->
+    {{partial "header.html"}}
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Content Section ======= -->
+      {{block "main" .}} {{end}}
+      <!-- End Content Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    {{partial "footer.html"}}
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    {{ partial "script.html"}}
+  </body>
+</html>
